@@ -1,10 +1,14 @@
+import {SortDirection} from "./Enums";
+
 class MergeSort {
     private static extraArray: number[];
+    private static sortCondition: (comparedElement: number, minValue: number) => boolean;
     private static ascendingCondition: (comparedElement: number, minValue: number) => boolean = (comparedElement: number, minValue: number) => comparedElement <= minValue;
     private static descendingCondition: (comparedElement: number, minValue: number) => boolean = (comparedElement: number, minValue: number) => comparedElement >= minValue;
 
-    public static sort(array: number[]): void {
+    public static sort(array: number[], sortDirection: SortDirection = SortDirection.ASC): void {
         this.extraArray = new Array(array.length);
+        this.sortCondition = sortDirection === SortDirection.ASC ? MergeSort.ascendingCondition : MergeSort.descendingCondition;
         this.mergeSort(array, 0, array.length - 1);
     }
 
@@ -25,7 +29,7 @@ class MergeSort {
         let rightIndex: number = middleIndex + 1;
         let index: number = startIndex;
         while (leftIndex <= middleIndex && rightIndex <= endIndex) {
-            if (MergeSort.ascendingCondition(this.extraArray[leftIndex], this.extraArray[rightIndex])) {
+            if (this.sortCondition(this.extraArray[leftIndex], this.extraArray[rightIndex])) {
                 array[index] = this.extraArray[leftIndex];
                 leftIndex++;
             } else {
@@ -41,9 +45,3 @@ class MergeSort {
         }
     }
 }
-
-
-const numbers: number[] = [3, 23, 43, 67, 11, 2, 99, 54, 3];
-console.log(numbers);
-MergeSort.sort(numbers);
-console.log(numbers);
