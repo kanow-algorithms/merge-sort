@@ -1,7 +1,7 @@
 # merge-sort
 
 ## Instalation
-After you clone this repo you need to move inside ```merge-sort``` directory and rum command
+After you clone this repo you need to move inside ```merge-sort``` directory and run command
 
 ``` npm install```
 
