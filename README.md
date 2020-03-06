@@ -31,3 +31,9 @@ On this graphic you can see how **merge-sort** algortihm works :
 <p align="center">
   <img src="https://i.stack.imgur.com/JuUVF.jpg=true" alt="MergeSort"/>
 </p>
+
+## How *merge* method works
+If you do not know what is going on after step three (**merge-sort** graphic). You can find the answer on the graphic below: 
+<p align="center">
+  <img src="https://i.stack.imgur.com/kZSqb.jpg=true" alt="Merge"/>
+</p>
